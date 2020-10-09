@@ -10,7 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 
-import { AppContext } from "./AppContextProvider.js";
+import { AppContext, layoutGraph } from "./AppContextProvider.js";
 import { cloneDeep } from "lodash";
 import Graph from "react-graph-vis";
 
@@ -31,8 +31,6 @@ import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
 import { Virtuoso } from "react-virtuoso";
 import { Link, useHistory } from "react-router-dom";
-
-import layoutGraph from "./App";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -384,15 +382,7 @@ function CompareTwoGraphsTool(props) {
           </Tooltip>
         </Grid>
         <Grid item style={{ width: "100%", height: "50vh" }}>
-          <Paper style={{ height: "100%" }}>
-            <Typography>
-              Graph 1
-              {layoutGraph(
-                state.dataSet.find((sentence) => sentence.id === "20001001")
-              )}
-            </Typography>
-          </Paper>
-          {/*<Graph
+          <Graph
             graph={highlightCompare(
               layoutGraph(
                 state.dataSet.find((sentence) => sentence.id === "20001001")
@@ -406,7 +396,7 @@ function CompareTwoGraphsTool(props) {
             getNetwork={(network) => {
               //  if you want access to vis.js network api you can set the state in a parent component using this property
             }}
-          />*/}
+          />
         </Grid>
       </Grid>
       <Grid container item xs={6} className={classes.body} spacing={1}>
@@ -436,9 +426,21 @@ function CompareTwoGraphsTool(props) {
           </Tooltip>
         </Grid>
         <Grid item style={{ width: "100%", height: "50vh" }}>
-          <Paper style={{ height: "100%" }}>
-            <Typography>Graph 2</Typography>
-          </Paper>
+          <Graph
+        graph={highlightCompare(
+          layoutGraph(
+            state.dataSet.find((sentence) => sentence.id === "20003005")
+          ),
+          response.SimilarNodes2,
+          response.SimilarEdges2
+        )} //The visualisation data for the current graph - comes from the global state
+        options={options} //options object from above
+        events={events} //events object from above
+        style={{ width: "100%", height: "100%" }}
+        getNetwork={(network) => {
+          //  if you want access to vis.js network api you can set the state in a parent component using this property
+        }}
+      />
         </Grid>
       </Grid>
       <Grid item>
