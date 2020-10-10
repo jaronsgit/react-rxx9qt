@@ -79,7 +79,7 @@ function CompareTwoGraphsTool(props) {
                     What the tool does
                   </Typography>
                   <Typography variant="body2" color="textSecondary">
-                    well meaning and kindly.
+                    Brief explanation
                   </Typography>
                 </CardContent>
               </Card>
@@ -94,10 +94,10 @@ function CompareTwoGraphsTool(props) {
                     color="textPrimary"
                     gutterBottom
                   >
-                    What the tool does
+                    The tool itself
                   </Typography>
                   <Typography variant="body2" color="textSecondary">
-                    well meaning and kindly.
+                    Tool goes here
                   </Typography>
                 </CardContent>
               </Card>
