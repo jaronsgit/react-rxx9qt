@@ -12,6 +12,8 @@ import FormalTestsResultsDisplay from "./FormalTestsResultsDisplay.js";
 import LongestPathDisplay from "./LongestPathDisplay";
 import SelectSubgraphPatternTool from "./SearchSubgraphPatternTool";
 import CompareTwoGraphsTool from "./CompareTwoGraphsTool.js";
+import AnalysisRow from "./AnalysisRow";
+
 
 const response = {
   LongestPathUndirected: [
@@ -268,8 +270,10 @@ export default function App() {
             height="100%"
             graphData={state.selectedSentenceVisualisation}
           />
-          <CompareTwoGraphsTool />
-          {/*<SelectSubgraphPatternTool />
+          <AnalysisRow />
+          
+          {/*<CompareTwoGraphsTool />
+          <SelectSubgraphPatternTool />
           <LongestPathDisplay type={"LongestPathDirected"} />
           <FormalTestsResultsDisplay testResults={response} />*/}
         </div>
